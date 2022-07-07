@@ -23,6 +23,9 @@ class Subtitle extends React.Component {
           <Element>
             <Button type="button" value={this.props.category4}></Button>
           </Element>
+          <Element>
+            <Button type="button" value={this.props.category5}></Button>
+          </Element>
         </List>
       </Div>
     );

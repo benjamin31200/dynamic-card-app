@@ -51,7 +51,7 @@ const Div = styled.div`
   display: flex;
   &.rating {
     p {
-      color: white;
+      color: #fcf8f8;
       text-shadow: -5px 3px 7px rgb(7 15 78), -1px -3px 2px rgb(0 0 0);
       font-family: "SimplySansBold";
       font-weight: bold;

@@ -6,6 +6,7 @@ import Subtitle from "./components/subtitle.jsx";
 
 function App() {
   return (
+    <Section>
       <Card>
         <Picture name="Avatar2"></Picture>
         <Desc
@@ -22,6 +23,7 @@ function App() {
           category4="Science-fiction"
         ></Subtitle>
       </Card>
+    </Section>
   );
 }
 
@@ -42,4 +44,11 @@ const Card = styled.section`
   background-size: cover;
   border: 2px solid black;
   border-radius: 22px;
+`;
+
+const Section = styled.section`
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: auto;
 `;
