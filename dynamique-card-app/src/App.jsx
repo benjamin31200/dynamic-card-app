@@ -11,7 +11,7 @@ function App() {
         <Picture name="Avatar2"></Picture>
         <Desc
           name="Avatar 2"
-          rating="note: 4/5"
+          rating="note: 3/5"
           descTitle="Synopsis :"
           descText="13 ans après les événements du premier film, Jake Sully et Neytiri forment une famille et restent ensemble malgré leurs différences. Ils sont cependant forcés de quitter leur maison et doivent explorer de nouvelles régions de Pandora lorsqu'une ancienne menace à la civilisation des Na'Vi refait surface."
         ></Desc>
@@ -21,6 +21,7 @@ function App() {
           category2="Aventure"
           category3="Fantastique"
           category4="Science-fiction"
+          category5="épique"
         ></Subtitle>
       </Card>
     </Section>
@@ -44,6 +45,7 @@ const Card = styled.section`
   background-size: cover;
   border: 2px solid black;
   border-radius: 22px;
+  position: sticky;
 `;
 
 const Section = styled.section`
