@@ -8,12 +8,18 @@ class Description extends React.Component {
     this.state = {
       logo: this.props.logo,
     };
+    this.state = {
+      changeText: {
+        bool: true,
+        text: this.props.text,
+        inputValue: this.props.inputValue,
+      },
+    };
   }
 
   componentDidMount() {
     const getDivRating = document.getElementById("note");
     const getNote = getDivRating.innerText.split("note: ")[1].split("/5");
-    console.log(getNote[0]);
     this.getNewLogo = () => {
       if (getNote[0] <= 2) {
         this.setState({
@@ -27,17 +33,147 @@ class Description extends React.Component {
         this.setState({
           logo: "https://tse4.mm.bing.net/th?id=OIP.LF8J2NyBXenBOj5-kwrkvAAAAA&pid=Api&P=0&w=182&h=188",
         });
-      } else {
-        return console.warn("alert");
       }
     };
-    console.log(getNote[0])
-    setInterval(() => {
-      this.getNewLogo();
-    }, 0 * 5000);
+
+    this.changeBool = () => {
+      const actualValue = this.state.changeText.bool;
+      actualValue === true
+        ? this.setState({ changeText: { bool: false } })
+        : this.setState({ changeText: { bool: true } });
+
+        if(actualValue === true) {
+          this.setState({ changeText: { inputValue: "[↑]" } })
+        } else {
+          this.setState({ changeText: { inputValue: "[↓]" } })
+        }
+      console.log(this.state.changeText);
+    };
+    this.getNewLogo();
+    this.changeBool();
   }
 
   render() {
+    const Text = styled.p``;
+
+    const StyledText = ({ texte }) => {
+      texte = this.props.text;
+      return <Text>{texte}</Text>;
+    };
+
+    const Input = styled.input.attrs((props) => ({
+      type: "button",
+      value: props.inputValue,
+    }))`
+      font-size: 1.2rem;
+      width: 40px;
+      height: 30px;
+      font-style: normal;
+      justify-content: center;
+      display: flex;
+    `;
+
+    const SectionDesc = styled.section`
+      width: auto;
+      display: flex;
+      height: auto;
+      justify-content: center;
+      flex-direction: column;
+    `;
+
+    const Div = styled.div`
+      width: auto;
+      justify-content: center;
+      display: flex;
+      &.rating {
+        background: url(https://img.freepik.com/vecteurs-libre/fond-abstrait-blanc_23-2148806276.jpg?t=st=1657015296~exp=1657015896~hmac=06acbdc…&w=996);
+        background-position: center;
+        background-clip: content-box;
+        background-size: cover;
+        border-radius: 2pc;
+        border: 2px solid black;
+        p {
+          color: #070f4e;
+          font-family: "SimplySansBold";
+          font-weight: ${(props) => props.logo};
+          padding: 0.2rem;
+          margin: 0.4rem;
+        }
+      }
+      &.title {
+        place-content: space-evenly;
+        flex-direction: row;
+        background-image: linear-gradient(#020520, rgba(21, 21, 214, 0.5)),
+          url(https://tse1.mm.bing.net/th?id=OIP.1GrT5PWR6d1WhbyQWcvd8AHaEo&pid=Api&P=0&w=275&h=171);
+        background-position: center;
+        background-clip: content-box;
+        background-size: cover;
+        height: 90px;
+        align-items: center;
+        border-bottom: 2px solid;
+        &::before {
+          content: "";
+          width: 330px;
+          height: 29px;
+          background-color: #02072b;
+          position: absolute;
+          top: 175px;
+          z-index: -1;
+        }
+        h1 {
+          margin: 1rem;
+          font-family: "SimplySansBold";
+          font-weight: bold;
+          font-size: 1.8rem;
+          color: white;
+          text-shadow: -5px 3px 7px rgb(0 0 0), -1px -3px 2px rgb(0 0 0);
+        }
+      }
+      &.desc {
+        flex-direction: column;
+      }
+      &.desc-p {
+        text-align: justify;
+        padding: 0.7rem 0.5rem 0.5rem 0.7rem;
+        align-items: center;
+        flex-direction: column;
+        p:nth-child(0n + 1) {
+          display: contents;
+          font-style: italic;
+          font-family: "ConstantineRegular";
+          font-weight: bold;
+          font-size: 0.8rem;
+        }
+      }
+      &.desc-h3 {
+        justify-content: justify;
+        padding-left: 0.3rem;
+        justify-content: flex-start;
+        h1:first-child {
+          font-family: "ConstantineRegular";
+          font-size: 1.3rem;
+          margin: 0.7rem 0 0 0.5rem;
+        }
+      }
+    `;
+
+    const Logo = styled(Div)`
+      background: url(${(props) => props.logo});
+      width: 35px;
+      background-position: center;
+      background-size: cover;
+      background-clip: content-box;
+      height: 35px;
+      position: relative;
+      bottom: 10px;
+      left: 5px;
+      border-radius: 20px;
+      mix-blend-mode: inherit;
+      border: 2px ridge #07070799;
+    `;
+
+    const Title = styled.h1``;
+
     return (
       <SectionDesc>
         <Div className="title">
@@ -56,7 +192,12 @@ class Description extends React.Component {
             <Title>{this.props.descTitle}</Title>
           </Div>
           <Div className="desc-p">
-            <Text>{this.props.descText}</Text>
+            <StyledText></StyledText>
+            <Input
+              value={this.state.changeText.inputValue}
+              onClick={this.changeBool}
+            >
+            </Input>
           </Div>
         </Div>
       </SectionDesc>
@@ -70,102 +211,11 @@ Description.propTypes = {
   rating: PropTypes.string,
   name: PropTypes.string,
   descTitle: PropTypes.string,
-  descText: PropTypes.string,
   logo: PropTypes.string,
+  text: PropTypes.string,
+  inputValue: PropTypes.string,
 };
 
-const SectionDesc = styled.section`
-  width: auto;
-  display: flex;
-  height: auto;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const Div = styled.div`
-  width: auto;
-  justify-content: center;
-  display: flex;
-  &.rating {
-    background: url(https://img.freepik.com/vecteurs-libre/fond-abstrait-blanc_23-2148806276.jpg?t=st=1657015296~exp=1657015896~hmac=06acbdc…&w=996);
-    background-position: center;
-    background-clip: content-box;
-    background-size: cover;
-    border-radius: 2pc;
-    border: 2px solid black;
-    p {
-      color: #070f4e;
-      font-family: "SimplySansBold";
-      font-weight: ${(props) => props.logo};
-      padding: 0.2rem;
-      margin: 0.4rem;
-    }
-  }
-  &.title {
-    place-content: space-evenly;
-    flex-direction: row;
-    background: #070f4e;
-    height: 90px;
-    align-items: center;
-    &::before {
-      content: "";
-      width: 330px;
-      height: 29px;
-      background: #070f4e;
-      position: absolute;
-      top: 175px;
-      z-index: -1;
-    }
-    h1 {
-      margin: 1rem;
-      font-family: "SimplySansBold";
-      font-weight: bold;
-      font-size: 1.8rem;
-      color: white;
-      text-shadow: -5px 3px 7px rgb(0 0 0), -1px -3px 2px rgb(0 0 0);
-    }
-  }
-  &.desc {
-    flex-direction: column;
-  }
-  &.desc-p {
-    text-align: justify;
-    padding: 0.7rem 0.5rem 1.2rem 0.7rem;
-    p:nth-child(0n + 1) {
-      display: contents;
-      font-style: italic;
-      font-family: "ConstantineRegular";
-      font-weight: bold;
-      font-size: 0.8rem;
-    }
-  }
-  &.desc-h3 {
-    justify-content: justify;
-    padding-left: 0.3rem;
-    justify-content: flex-start;
-    h1:first-child {
-      font-family: "ConstantineRegular";
-      font-size: 1.3rem;
-      margin: 0.7rem 0 0 0.5rem;
-    }
-  }
-`;
-
-const Logo = styled(Div)`
-  background: url(${(props) => props.logo});
-  width: 35px;
-  background-position: center;
-  background-size: cover;
-  background-clip: content-box;
-  height: 35px;
-  position: relative;
-  bottom: 10px;
-  left: 5px;
-  border-radius: 20px;
-  mix-blend-mode: inherit;
-  border: 2px ridge #07070799;
-`;
-
-const Title = styled.h1``;
-
-const Text = styled.p``;
+Description.defaultProps = {
+  text: "13 ans après les événements du premier film, Jake Sully et Neytiri forment une famille et restent ensemble malgré leurs différences. Ils sont cependant forcés de quitter leur maison et doivent explorer de nouvelles régions de Pandora lorsqu'une ancienne menace à la civilisation des Na'Vi refait surface.",
+};

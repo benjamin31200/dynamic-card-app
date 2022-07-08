@@ -47,12 +47,16 @@ const Div = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  background: #070f4e;
-  padding-top: 0.5rem;
+  background-image: linear-gradient(rgba(21, 21, 214, 0.5), #020520),
+      url(https://tse1.mm.bing.net/th?id=OIP.1GrT5PWR6d1WhbyQWcvd8AHaEo&pid=Api&P=0&w=275&h=171);
+    background-position: center;
+    background-clip: content-box;
+    background-size: cover;
   border-radius: 0 0 20px 20px;
   overflow-x: scroll;
   scroll-behavior: auto;
   content-visibility: hidden-matchable;
+  border-top: 2px solid;
 `;
 
 const Title = styled.h4`
