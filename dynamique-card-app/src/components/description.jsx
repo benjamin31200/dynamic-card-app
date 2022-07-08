@@ -10,10 +10,14 @@ class Description extends React.Component {
     };
     this.state = {
       changeText: {
-        bool: true,
         text: this.props.text,
-        inputValue: this.props.inputValue,
       },
+    };
+    this.state = {
+      setInput : {
+        bool: Boolean,
+        inputValue: this.props.inputValue,
+      }
     };
   }
 
@@ -35,23 +39,18 @@ class Description extends React.Component {
         });
       }
     };
+    this.getNewLogo();
 
     this.changeBool = () => {
-      const actualValue = this.state.changeText.bool;
-      actualValue === true
-        ? this.setState({ changeText: { bool: false } })
-        : this.setState({ changeText: { bool: true } });
-
-        if(actualValue === true) {
-          this.setState({ changeText: { inputValue: "[↑]" } })
-        } else {
-          this.setState({ changeText: { inputValue: "[↓]" } })
-        }
-      console.log(this.state.changeText);
-    };
-    this.getNewLogo();
+      const actualValue = this.state.setInput.bool;
+      actualValue
+        ? this.setState({ setInput: { bool: false, inputValue: "[↑]" } })
+        : this.setState({ setInput: { bool: true, inputValue: "[↓]" } });
+        console.log(this.state.setInput)
+    };   
     this.changeBool();
-  }
+
+}
 
   render() {
     const Text = styled.p``;
@@ -63,7 +62,7 @@ class Description extends React.Component {
 
     const Input = styled.input.attrs((props) => ({
       type: "button",
-      value: props.inputValue,
+      value: this.state.setInput.inputValue,
     }))`
       font-size: 1.2rem;
       width: 40px;
@@ -194,7 +193,7 @@ class Description extends React.Component {
           <Div className="desc-p">
             <StyledText></StyledText>
             <Input
-              value={this.state.changeText.inputValue}
+              value={this.state.setInput.inputValue}
               onClick={this.changeBool}
             >
             </Input>
