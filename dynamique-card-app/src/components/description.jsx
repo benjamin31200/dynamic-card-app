@@ -9,9 +9,7 @@ class Description extends React.Component {
       logo: this.props.logo,
     };
     this.state = {
-      changeText: {
-        text: this.props.text,
-      },
+      texte: this.props.texte,
     };
     this.state = {
       setInput : {
@@ -46,17 +44,16 @@ class Description extends React.Component {
       actualValue
         ? this.setState({ setInput: { bool: false, inputValue: "[↑]" } })
         : this.setState({ setInput: { bool: true, inputValue: "[↓]" } });
-        console.log(this.state.setInput)
-    };   
+        console.log(this.state.inputValue)
+    };
     this.changeBool();
-
 }
 
   render() {
     const Text = styled.p``;
 
     const StyledText = ({ texte }) => {
-      texte = this.props.text;
+      texte = this.props.texte;
       return <Text>{texte}</Text>;
     };
 
@@ -191,7 +188,7 @@ class Description extends React.Component {
             <Title>{this.props.descTitle}</Title>
           </Div>
           <Div className="desc-p">
-            <StyledText></StyledText>
+            <StyledText texte={this.state.texte}></StyledText>
             <Input
               value={this.state.setInput.inputValue}
               onClick={this.changeBool}
@@ -211,10 +208,10 @@ Description.propTypes = {
   name: PropTypes.string,
   descTitle: PropTypes.string,
   logo: PropTypes.string,
-  text: PropTypes.string,
+  texte: PropTypes.string,
   inputValue: PropTypes.string,
 };
 
 Description.defaultProps = {
-  text: "13 ans après les événements du premier film, Jake Sully et Neytiri forment une famille et restent ensemble malgré leurs différences. Ils sont cependant forcés de quitter leur maison et doivent explorer de nouvelles régions de Pandora lorsqu'une ancienne menace à la civilisation des Na'Vi refait surface.",
+  texte: "13 ans après les événements du premier film, Jake Sully et Neytiri forment une famille et restent ensemble malgré leurs différences. Ils sont cependant forcés de quitter leur maison et doivent explorer de nouvelles régions de Pandora lorsqu'une ancienne menace à la civilisation des Na'Vi refait surface.",
 };

@@ -11,7 +11,7 @@ function App() {
         <Picture name="Avatar2"></Picture>
         <Desc
           name="Avatar 2"
-          rating="note: 3/5"
+          rating="note: 4/5"
           descTitle="Synopsis :"
         ></Desc>
         <Subtitle
