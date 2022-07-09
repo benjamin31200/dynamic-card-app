@@ -13,6 +13,7 @@ function App() {
           name="Avatar 2"
           rating="note: 4/5"
           descTitle="Synopsis :"
+          texte="13 ans après les événements du premier film, Jake Sully et Neytiri forment une famille et restent ensemble malgré leurs différences. Ils sont cependant forcés de quitter leur maison et doivent explorer de nouvelles régions de Pandora lorsqu'une ancienne menace à la civilisation des Na'Vi refait surface."
         ></Desc>
         <Subtitle
           title="Catégorie :"

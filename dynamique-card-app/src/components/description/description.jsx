@@ -6,15 +6,12 @@ import StyledDescriptionComponents from "./descriptionStyledComponent.jsx";
 
 const DescriptionComponent = (props) => {
   const [logo, setLogo] = React.useState(props.logo);
-  const [texte, setTexte] = React.useState(props.texte);
+  const [texte, setTexte] = React.useState("");
   const [input, setInput] = React.useState({
-    bool: Boolean,
+    bool: true,
     inputValue: props.inputValue,
   });
-
-  
-  console.log(input);
-
+ 
   useEffect(() => {
     const getDivRating = document.getElementById("note");
     const getNote = getDivRating.innerText.split("note: ")[1].split("/5");
@@ -32,7 +29,18 @@ const DescriptionComponent = (props) => {
         "https://tse4.mm.bing.net/th?id=OIP.LF8J2NyBXenBOj5-kwrkvAAAAA&pid=Api&P=0&w=182&h=188"
       );
     }
-  }, []);
+
+      const baseText = (ppTexte, sTexte) => {
+      const getSmallText = ppTexte.split(" ");
+      const arrayText = [];
+      for (let i = 0; i < 19; i++) {
+        arrayText.push(getSmallText[i]);
+      }
+      const newText = arrayText.join(" ") + "...";
+      sTexte(newText);
+    }
+    baseText(props.texte, setTexte);
+  }, [props.texte]);
 
   return (
     <StyledDescriptionComponents
@@ -44,6 +52,8 @@ const DescriptionComponent = (props) => {
       inputValue={input.inputValue}
       bool={input.bool}
       setInput={setInput}
+      setTexte={setTexte}
+      propsTexte={props.texte}
     ></StyledDescriptionComponents>
   );
 };
@@ -58,8 +68,6 @@ DescriptionComponent.propTypes = {
 };
 
 DescriptionComponent.defaultProps = {
-  texte:
-    "13 ans après les événements du premier film, Jake Sully et Neytiri forment une famille et restent ensemble malgré leurs différences. Ils sont cependant forcés de quitter leur maison et doivent explorer de nouvelles régions de Pandora lorsqu'une ancienne menace à la civilisation des Na'Vi refait surface.",
   inputValue: "[↓]",
 };
 
