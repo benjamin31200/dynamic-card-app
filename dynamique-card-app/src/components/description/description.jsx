@@ -2,7 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
-import StyledDescriptionComponents from "./descriptionStyledComponent.js";
+import StyledDescriptionComponents from "./descriptionStyledComponent.jsx";
 
 const DescriptionComponent = (props) => {
   const [logo, setLogo] = React.useState(props.logo);

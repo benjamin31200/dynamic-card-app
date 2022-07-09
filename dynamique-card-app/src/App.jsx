@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Picture from "./components/picture.jsx";
-import Desc from "./components/description.jsx";
+import Picture from "./components/picture/picture.jsx";
+import Desc from "./components/description/description.jsx";
 import Subtitle from "./components/subtitle.jsx";
 
 function App() {
