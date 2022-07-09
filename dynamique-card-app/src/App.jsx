@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Picture from "./components/picture/picture.jsx";
 import Desc from "./components/description/description.jsx";
-import Subtitle from "./components/subtitle.jsx";
+import Subtitle from "./components/subtitle/subtitle.jsx";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import PropTypes, { element } from "prop-types";
+import PropTypes from "prop-types";
 import { useEffect } from "react";
 import PictureStyledComponents from "./pictureStyledComponent.jsx";
 
