@@ -24,6 +24,23 @@ function App() {
           category5="épique"
         ></Subtitle>
       </Card>
+      <Card>
+        <Picture name="indianaJones"></Picture>
+        <Desc
+          name="Indiana Jones 5"
+          rating="note: 3/5"
+          descTitle="Synopsis :"
+          texte="Indiana Jones 5 est le titre provisoire d'un film d'aventures américain réalisé par James Mangold et dont la sortie est prévue en 2023. Il s'agit du cinquième volet de la saga cinématographique Indiana Jones mettant en vedette Harrison Ford."
+        ></Desc>
+        <Subtitle
+          title="Catégorie :"
+          category1="Action"
+          category2="Aventure"
+          category3="suspense"
+          category4="fiction"
+          category5="épique"
+        ></Subtitle>
+      </Card>
     </Section>
   );
 }

@@ -9,7 +9,9 @@ const Input = styled.input.attrs((props) => ({
   inputMarginTop: props.inputMarginTop,
 }))`
   font-size: 1.2rem;
+  border-radius: 20px;
   width: 40px;
+  cursor: pointer;
   height: 30px;
   font-style: normal;
   justify-content: center;
@@ -42,6 +44,7 @@ const Div = styled.div`
       font-weight: bold;
       padding: 0.2rem;
       margin: 0.4rem;
+      font-size: 1rem;
     }
   }
   &.title {
@@ -86,8 +89,7 @@ const Div = styled.div`
       font-style: italic;
       font-family: "ConstantineRegular";
       font-weight: bold;
-      font-size: 0.8rem;
-      transition: cubic-bezier(0.39, 0.575, 0.565, 3s);
+      font-size: 0.9rem;
     }
   }
   &.desc-h3 {
