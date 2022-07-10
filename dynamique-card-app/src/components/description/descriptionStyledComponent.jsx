@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-expressions */
 /*eslint no-unused-expressions: ["error", { "allowTernary": true }]*/
+import React from "react";
 import styled from "styled-components";
-import {}
+import { baseText } from "../../AppFunction";
 
-const Input = styled.input.attrs(() => ({
+const Input = styled.input.attrs((props) => ({
   type: "button",
+  inputMarginTop: props.inputMarginTop,
 }))`
   font-size: 1.2rem;
   width: 40px;
@@ -12,6 +14,7 @@ const Input = styled.input.attrs(() => ({
   font-style: normal;
   justify-content: center;
   display: flex;
+  margin: ${(props) => props.inputMarginTop};
 `;
 
 const SectionDesc = styled.section`
@@ -84,6 +87,7 @@ const Div = styled.div`
       font-family: "ConstantineRegular";
       font-weight: bold;
       font-size: 0.8rem;
+      transition: cubic-bezier(0.39, 0.575, 0.565, 3s);
     }
   }
   &.desc-h3 {
@@ -117,14 +121,29 @@ const Title = styled.h1``;
 const Text = styled.p``;
 
 const StyledDescriptionComponents = (props) => {
+  const initialState = "0.6rem";
+  const changeMarginInput = (state, action) => {
+    switch (action.type) {
+      case "true":
+        return (state = "0.6rem");
+      case "false":
+        return (state = "0.3rem");
+      default:
+        throw new Error();
+    }
+  };
 
+  const [state, dispatch] = React.useReducer(changeMarginInput, initialState);
   const changeBool = () => {
     const actualValue = props.bool;
+    const newTexte = baseText(props.propsTexte);
     actualValue
-      ? (props.setInput({ bool: false, inputValue: "[↑]" }),
+      ? (props.setInput({ bool: false, inputValue: "↑" }),
+        dispatch({ type: "false" }),
         props.setTexte(props.propsTexte))
-      : (props.setInput({ bool: true, inputValue: "[↓]" }),
-        props.setTexte(props.texte));
+      : (props.setInput({ bool: true, inputValue: "↓" }),
+        dispatch({ type: "true" }),
+        props.setTexte(newTexte));
   };
 
   return (
@@ -144,7 +163,11 @@ const StyledDescriptionComponents = (props) => {
         </Div>
         <Div className="desc-p">
           <Text>{props.texte}</Text>
-          <Input value={props.inputValue} onClick={() => changeBool()}></Input>
+          <Input
+            inputMarginTop={state}
+            value={props.inputValue}
+            onClick={() => changeBool()}
+          ></Input>
         </Div>
       </Div>
     </SectionDesc>

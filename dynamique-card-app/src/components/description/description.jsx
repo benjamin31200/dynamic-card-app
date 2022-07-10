@@ -3,15 +3,17 @@ import React from "react";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 import StyledDescriptionComponents from "./descriptionStyledComponent.jsx";
+import { baseText } from "../../AppFunction.js";
 
 const DescriptionComponent = (props) => {
+  const smallTexte = baseText(props.texte);
   const [logo, setLogo] = React.useState(props.logo);
-  const [texte, setTexte] = React.useState("");
+  const [texte, setTexte] = React.useState(smallTexte);
   const [input, setInput] = React.useState({
-    bool: true,
+    bool: Boolean,
     inputValue: props.inputValue,
   });
- 
+  
   useEffect(() => {
     const getDivRating = document.getElementById("note");
     const getNote = getDivRating.innerText.split("note: ")[1].split("/5");
@@ -29,17 +31,6 @@ const DescriptionComponent = (props) => {
         "https://tse4.mm.bing.net/th?id=OIP.LF8J2NyBXenBOj5-kwrkvAAAAA&pid=Api&P=0&w=182&h=188"
       );
     }
-
-      const baseText = (ppTexte, sTexte) => {
-      const getSmallText = ppTexte.split(" ");
-      const arrayText = [];
-      for (let i = 0; i < 19; i++) {
-        arrayText.push(getSmallText[i]);
-      }
-      const newText = arrayText.join(" ") + "...";
-      sTexte(newText);
-    }
-    baseText(props.texte, setTexte);
   }, [props.texte]);
 
   return (
@@ -68,7 +59,7 @@ DescriptionComponent.propTypes = {
 };
 
 DescriptionComponent.defaultProps = {
-  inputValue: "[↓]",
+  inputValue: "↓",
 };
 
 export default DescriptionComponent;
