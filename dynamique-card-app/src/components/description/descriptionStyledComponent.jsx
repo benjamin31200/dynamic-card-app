@@ -3,6 +3,7 @@
 import React from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { baseText } from "../../AppFunction";
 
 const Input = styled.input.attrs((props) => ({
@@ -208,6 +209,19 @@ const StyledDescriptionComponents = (props) => {
       </Div>
     </SectionDesc>
   );
+};
+
+StyledDescriptionComponents.propTypes = {
+  rating: PropTypes.string,
+  name: PropTypes.string,
+  descTitle: PropTypes.string,
+  logo: PropTypes.string,
+  texte: PropTypes.string,
+  inputValue: PropTypes.string,
+  setTexte: PropTypes.func,
+  setInput: PropTypes.func,
+  bool: PropTypes.func,
+  propsTexte: PropTypes.string,
 };
 
 export default StyledDescriptionComponents;

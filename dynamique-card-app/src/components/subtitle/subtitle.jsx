@@ -14,9 +14,7 @@ const SubtitleComponent = (props) => {
       category5={props.category5}
       ></SubtitleStyledComponents>
     );
-}
-
-export default SubtitleComponent;
+};
 
 SubtitleComponent.propTypes = {
   title: PropTypes.string,
@@ -24,5 +22,10 @@ SubtitleComponent.propTypes = {
   category2: PropTypes.string,
   category3: PropTypes.string,
   category4: PropTypes.string,
+  category5: PropTypes.string,
 };
+
+export default SubtitleComponent;
+
+
 

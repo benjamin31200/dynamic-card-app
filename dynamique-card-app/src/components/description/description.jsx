@@ -14,7 +14,7 @@ const DescriptionComponent = (props) => {
     inputValue: props.inputValue,
   });
   useEffect(() => {
-    const getDivRating = props.rating
+    const getDivRating = props.rating;
     const getNote = getDivRating.split("note: ")[1].split("/5");
 
     if (getNote[0] <= 2) {

@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
+import CardComponent from "./components/card/CardComponent.jsx";
 import reportWebVitals from "./reportWebVitals";
+import AppComponent from "./components/app/appComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,7 +22,8 @@ root.render(
         type="text/css"
       />
     </head>
-    <App />
+    <CardComponent></CardComponent>
+    <AppComponent></AppComponent>
   </React.StrictMode>
 );
 

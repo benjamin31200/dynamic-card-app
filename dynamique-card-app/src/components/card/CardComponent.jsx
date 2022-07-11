@@ -1,10 +1,35 @@
 import React from "react";
 import styled from "styled-components";
-import Picture from "./components/picture/picture.jsx";
-import Desc from "./components/description/description.jsx";
-import Subtitle from "./components/subtitle/subtitle.jsx";
+import Picture from "../picture/picture.jsx";
+import PropTypes from "prop-types";
+import Desc from "../description/description.jsx";
+import Subtitle from "../subtitle/subtitle.jsx";
 
-function App() {
+const Card = styled.section`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 330px;
+  border: groove;
+  background-image: url(https://img.freepik.com/vecteurs-libre/fond-abstrait-blanc_23-2148806276.jpg?t=st=1657015296~exp=1657015896~hmac=06acbdcf93c50155e15bad313a461525dc62094e25985ae65c30773bc17ff5ff&w=996);
+  background-position: center;
+  background-clip: content-box;
+  background-size: cover;
+  border: 2px solid black;
+  border-radius: 22px;
+  position: sticky;
+`;
+
+const Section = styled.section`
+  display: flex;
+  justify-content: space-evenly;
+  height: auto;
+  width: auto;
+`;
+
+const CardComponent = () => {
   return (
     <Section>
       <Card>
@@ -77,30 +102,15 @@ function App() {
       </Card>
     </Section>
   );
-}
+};
 
-export default App;
+console.log(Card);
 
-const Card = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-  width: 330px;
-  border: groove;
-  background-image: url(https://img.freepik.com/vecteurs-libre/fond-abstrait-blanc_23-2148806276.jpg?t=st=1657015296~exp=1657015896~hmac=06acbdcf93c50155e15bad313a461525dc62094e25985ae65c30773bc17ff5ff&w=996);
-  background-position: center;
-  background-clip: content-box;
-  background-size: cover;
-  border: 2px solid black;
-  border-radius: 22px;
-  position: sticky;
-`;
+CardComponent.propTypes = {
+  avatarCard: PropTypes.string,
+  indianaCard: PropTypes.string,
+  grayCard: PropTypes.string,
+  thorCard: PropTypes.string,
+};
 
-const Section = styled.section`
-  display: flex;
-  justify-content: space-evenly;
-  height: auto;
-  width: auto;
-`;
+export default CardComponent;
