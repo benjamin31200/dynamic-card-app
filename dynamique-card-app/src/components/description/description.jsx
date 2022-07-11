@@ -13,25 +13,24 @@ const DescriptionComponent = (props) => {
     bool: Boolean,
     inputValue: props.inputValue,
   });
-  
   useEffect(() => {
-    const getDivRating = document.getElementById("note");
-    const getNote = getDivRating.innerText.split("note: ")[1].split("/5");
+    const getDivRating = props.rating
+    const getNote = getDivRating.split("note: ")[1].split("/5");
 
     if (getNote[0] <= 2) {
       setLogo(
-        "https://tse3.mm.bing.net/th?id=OIP.HpEhAf2CYLwHSAo-qUdyMgHaF7&pid=Api&P=0&w=270&h=216"
+        "https://tse4.mm.bing.net/th?id=OIP.Mbxj-qx8QeUEqSzV6iUqFgAAAA&pid=Api&P=0&w=238&h=178"
       );
     } else if (getNote[0] > 2 && getNote[0] < 4) {
       setLogo(
-        "https://tse3.mm.bing.net/th?id=OIP.6iV3x0jvBT_F6eoyLu6PhAHaHa&pid=Api&P=0&w=167&h=167"
+        "https://tse2.mm.bing.net/th?id=OIP.naB40B_QUAHHixKvC1AH0AAAAA&pid=Api&P=0&w=167&h=165"
       );
     } else if (getNote[0] >= 4) {
       setLogo(
-        "https://tse4.mm.bing.net/th?id=OIP.LF8J2NyBXenBOj5-kwrkvAAAAA&pid=Api&P=0&w=182&h=188"
+        "https://tse2.explicit.bing.net/th?id=OIP.EqhFQY5VypD2VL_9DmKE2AHaGw&pid=Api&P=0&w=184&h=168"
       );
     }
-  }, [props.texte]);
+  }, [props.rating]);
 
   return (
     <StyledDescriptionComponents

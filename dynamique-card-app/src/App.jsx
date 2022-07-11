@@ -12,11 +12,11 @@ function App() {
         <Desc
           name="Avatar 2"
           rating="note: 4/5"
-          descTitle="Synopsis :"
+          descTitle="Synopsis:"
           texte="13 ans après les événements du premier film, Jake Sully et Neytiri forment une famille et restent ensemble malgré leurs différences. Ils sont cependant forcés de quitter leur maison et doivent explorer de nouvelles régions de Pandora lorsqu'une ancienne menace à la civilisation des Na'Vi refait surface."
         ></Desc>
         <Subtitle
-          title="Catégorie :"
+          title="Catégorie:"
           category1="Action"
           category2="Aventure"
           category3="Fantastique"
@@ -28,17 +28,51 @@ function App() {
         <Picture name="indianaJones"></Picture>
         <Desc
           name="Indiana Jones 5"
-          rating="note: 3/5"
-          descTitle="Synopsis :"
-          texte="Indiana Jones 5 est le titre provisoire d'un film d'aventures américain réalisé par James Mangold et dont la sortie est prévue en 2023. Il s'agit du cinquième volet de la saga cinématographique Indiana Jones mettant en vedette Harrison Ford."
+          rating="note: 2/5"
+          descTitle="Synopsis:"
+          texte="Thor entreprend un voyage différent de tout ce qu'il a connu jusqu'à présent : une quête de paix intérieure. Mais sa retraite est interrompue par un tueur galactique connu sous le nom de Gorr le Boucher des dieux, qui cherche à faire disparaître les dieux. Pour combattre cette nouvelle menace, Thor demande de l'aide au Roi Valkyrie, à Korg et à son ex-petite amie Jane Foster, qui - à sa grande surprise - manie inexplicablement son marteau magique, Mjolnir. Ensemble, ils se lancent dans une aventure cosmique poignante pour percer le mystère autour de la vengeance du Boucher des dieux et l'arrêter avant qu'il ne soit trop tard."
         ></Desc>
         <Subtitle
-          title="Catégorie :"
+          title="Catégorie:"
           category1="Action"
           category2="Aventure"
           category3="suspense"
           category4="fiction"
           category5="épique"
+        ></Subtitle>
+      </Card>
+      <Card>
+        <Picture name="thor"></Picture>
+        <Desc
+          name="Thor: love and thunder"
+          rating="note: 3.5/5"
+          descTitle="Synopsis:"
+          texte="Thor entreprend un voyage différent de tout ce qu'il a connu jusqu'à présent : une quête de paix intérieure. Mais sa retraite est interrompue par un tueur galactique connu sous le nom de Gorr le Boucher des dieux, qui cherche à faire disparaître les dieux. Pour combattre cette nouvelle menace, Thor demande de l'aide au Roi Valkyrie, à Korg et à son ex-petite amie Jane Foster, qui - à sa grande surprise - manie inexplicablement son marteau magique, Mjolnir. Ensemble, ils se lancent dans une aventure cosmique poignante pour percer le mystère autour de la vengeance du Boucher des dieux et l'arrêter avant qu'il ne soit trop tard."
+        ></Desc>
+        <Subtitle
+          title="Catégorie:"
+          category1="Action"
+          category2="Aventure"
+          category3="marvel"
+          category4="fiction"
+          category5="comédie"
+        ></Subtitle>
+      </Card>
+      <Card>
+        <Picture name="grayman"></Picture>
+        <Desc
+          name="The Gray Man"
+          rating="note: 4/5"
+          descTitle="Synopsis:"
+          texte="Gray Man est le nom de code de l'agent de la CIA Court Gentry , alias Sierra Six. Extirpé d'une prison fédérale et recruté par Donald Fitzroy , ce tueur hautement qualifié opère pendant des années pour le compte de l'agence de renseignement américaine. Sauf que la roue tourne, et Sierra Six se retrouve dans le rôle de la cible, pourchassé par Lloyd Hansen, un ancien acolyte des services secrets désormais prêt à tout pour l'éliminer. Mais l'agente Dani Miranda le soutient, et son aide est la bienvenue…"
+        ></Desc>
+        <Subtitle
+          title="Catégorie:"
+          category1="Action"
+          category2="policier"
+          category3="drame"
+          category4="fiction"
+          category5="suspense"
         ></Subtitle>
       </Card>
     </Section>
@@ -66,7 +100,7 @@ const Card = styled.section`
 
 const Section = styled.section`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   height: auto;
   width: auto;
 `;
